@@ -74,6 +74,9 @@ public class Logic {
         int vert = 0;
         int hor = 0;
         for (int row = 0; row < table.length; row++) {
+            if (vert == table.length || hor == table.length) {
+                result = true;
+            }
             if (table[row][row] == 1) {
                 for (int cell = 0; cell < table.length; cell++) {
                     if (table[row][cell] == 1) {
@@ -81,9 +84,6 @@ public class Logic {
                     }
                     if (table[cell][row] == 1) {
                         hor++;
-                    }
-                    if (vert == table.length || hor == table.length) {
-                        result = true;
                     }
                 }
             }
