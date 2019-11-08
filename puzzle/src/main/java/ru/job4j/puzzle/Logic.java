@@ -74,16 +74,21 @@ public class Logic {
         int vert = 0;
         int hor = 0;
         for (int row = 0; row < table.length; row++) {
-            if (vert == table.length || hor == table.length) {
-                result = true;
-            }
             if (table[row][row] == 1) {
                 for (int cell = 0; cell < table.length; cell++) {
                     if (table[row][cell] == 1) {
                         vert++;
+                        if (vert == table.length) {
+                            result = true;
+                            break;
+                        }
                     }
                     if (table[cell][row] == 1) {
                         hor++;
+                        if (hor == table.length) {
+                            result = true;
+                            break;
+                        }
                     }
                 }
             }
