@@ -68,6 +68,7 @@ public class Logic {
         return rst;
     }
 
+
     public boolean isWin() {
         int[][] table = this.convert();
         boolean result = false;
@@ -78,19 +79,15 @@ public class Logic {
                 for (int cell = 0; cell < table.length; cell++) {
                     if (table[row][cell] == 1) {
                         vert++;
-                        if (vert == table.length) {
-                            result = true;
-                            break;
-                        }
                     }
                     if (table[cell][row] == 1) {
                         hor++;
-                        if (hor == table.length) {
-                            result = true;
-                            break;
-                        }
                     }
                 }
+                if (hor == table.length || vert == table.length) {
+                    result = true;
+                }
+                break;
             }
         }
         return result;
